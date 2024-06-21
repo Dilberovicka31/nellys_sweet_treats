@@ -9,9 +9,14 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+ "dependencies": {
+    "@emotion/react": "^11.4.1",
+    "@emotion/styled": "^11.3.0",
+    "@mui/material": "^5.15.0",
+    "@mui/styles": "^5.15.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "vite": "^2.7.13"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
@@ -21,6 +26,10 @@
     "eslint-plugin-react": "^7.34.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
-    "vite": "^5.2.0"
+    "vite": "^5.3.1"
+  },
+  "peerDependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   }
 }
