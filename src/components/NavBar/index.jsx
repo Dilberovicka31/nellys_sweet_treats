@@ -7,36 +7,47 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import CakeIcon from '@mui/icons-material/Cake';
-import MailIcon from '@mui/icons-material/Mail';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
-import EventIcon from '@mui/icons-material/Event';
+import MenuIcon from '@mui/icons-material/Menu';
 import { styled } from '@mui/system';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
 const listItems = [
-  { text: 'About', icon: <AccountCircleIcon /> },
-  { text: 'Cakes', icon: <CakeIcon /> },
-  { text: 'Cupcakes', icon: <CakeIcon /> },
-  { text: 'Cheesecakes', icon: <CakeIcon /> }, // Example using CakeIcon again
-  { text: 'Contact', icon: <ContactMailIcon /> },
+  { text: 'About', icon: <AccountCircleIcon />, path: '/about' },
+  { text: 'Cakes', icon: <CakeIcon />, path: '/cakes' },
+  { text: 'Cupcakes', icon: <CakeIcon />, path: '/cupcakes' },
+  { text: 'Cheesecakes', icon: <CakeIcon />, path: '/cheesecakes' },
+  { text: 'Contact', icon: <ContactMailIcon />, path: '/contact' },
 ];
-
-const PageContainer = styled('div')({
-  display: 'flex',
-  minHeight: '100vh',
-  minWidth: '100vw',
-  background: 'linear-gradient(to right, #FEFAE0 50%, #FAEDCD 50%)',
-});
 
 const ButtonContainer = styled('div')({
   position: 'fixed',
   top: '20px',
   right: '20px',
-  zIndex: 999, // Ensures the button is above other content
+  zIndex: 999, 
+  '& button': {
+    backgroundColor: '#CCD5AE', // Default button color
+    color: 'black', // Text color
+    '&:hover': {
+      backgroundColor: '#E9EDC9', 
+      boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.2)', // Box shadow on hover
+    },
+    '&:focus': {
+      outline: 'none', // Remove blue outline on focus
+    },
+    '& .MuiButton-startIcon': {
+      marginRight: '8px', // Adjust the spacing between icon and text
+    },
+  },
 });
 
+
+  
+
+
 const DrawerContent = styled('div')({
-  width: 250, 
+  width: 250,
   background: '#D4A373',
   height: '100%',
 });
@@ -55,28 +66,28 @@ export default function RightDrawer() {
       onKeyDown={toggleDrawer(false)}
     >
       <List>
-      {listItems.map((item, index) => (
-        <ListItem key={item.text} disablePadding>
-          <ListItemButton>
-            <ListItemIcon>
-              {item.icon}
-            </ListItemIcon>
-            <ListItemText primary={item.text} />
-          </ListItemButton>
-        </ListItem>
-      ))}
-    </List>
+        {listItems.map((item, index) => (
+          <ListItem key={item.text} disablePadding>
+            <ListItemButton component={Link} to={item.path}>
+              <ListItemIcon>
+                {item.icon}
+              </ListItemIcon>
+              <ListItemText primary={item.text} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
     </DrawerContent>
   );
 
   return (
-    <PageContainer>
+    <div>
       <ButtonContainer>
-        <Button onClick={toggleDrawer(true)}>Menu</Button>
+        <Button startIcon={<MenuIcon/>} onClick={toggleDrawer(true)}>Menu</Button>
       </ButtonContainer>
       <Drawer anchor="right" open={open} onClose={toggleDrawer(false)}>
         {list}
       </Drawer>
-    </PageContainer>
+    </div>
   );
 }
