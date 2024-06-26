@@ -7,6 +7,7 @@ import Cakes from './components/Cakes';
 import Cupcakes from './components/Cupcakes';
 import Contact from './components/Contact';
 import Cheesecakes from './components/Cheesecakes';
+import About from './components/About';
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
       <NavBar />
       <PageContainer>
         <Routes>
-          <Route path="/" element={<Cakes />} />
+          <Route path="/" element={<About />} />
+          <Route path="/cakes" element={<Cakes />} />
           <Route path="/cupcakes" element={<Cupcakes />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/cheesecakes" element={<Cheesecakes />} />
