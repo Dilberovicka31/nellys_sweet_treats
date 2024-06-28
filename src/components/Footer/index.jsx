@@ -9,8 +9,8 @@ function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary">
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
+      <Link color="inherit" href="https://nellyssweettreats.com/">
+        Nelly's Sweet Treats
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -24,20 +24,20 @@ export default function StickyFooter() {
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        minHeight: '10vh',
+        minHeight: '10vh', // Ensure the footer sticks to the bottom
         backgroundColor: '#E9EDC9', // Custom background color for the entire page
       }}
     >
       <CssBaseline />
       <Container component="main" sx={{ mt: 8, mb: 2 }} maxWidth="sm">
         <Typography variant="h2" component="h1" gutterBottom>
-          Sticky footer
+          Welcome to Nelly's Sweet Treats
         </Typography>
         <Typography variant="h5" component="h2" gutterBottom>
-          {'Pin a footer to the bottom of the viewport.'}
-          {'The footer will move as the main element of the page grows.'}
+          {'Discover our delicious choco flan, cheesecakes, and cakes.'}
+          {' Indulge in sweetness with every bite!'}
         </Typography>
-        <Typography variant="body1">Sticky footer placeholder.</Typography>
+        <Typography variant="body1">Explore our mouthwatering treats.</Typography>
       </Container>
       <Box
         component="footer"
@@ -51,7 +51,7 @@ export default function StickyFooter() {
       >
         <Container maxWidth="sm">
           <Typography variant="body1">
-            My sticky footer can be found here.
+            Stay updated with Nelly's Sweet Treats for more delicious creations.
           </Typography>
           <Copyright />
         </Container>
