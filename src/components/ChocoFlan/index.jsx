@@ -61,18 +61,21 @@ function ChocoFlan() {
 
 const itemData = [
   {
-    img: '/assets/images/Cake.jpeg',
+    img: '/assets/images/chocoflan1.jpeg',
     title: 'Chocolate Flan',
   },
   {
-    img: '/assets/images/Cake1.jpeg',
+    img: '/assets/images/chocoflan2.jpeg',
     title: 'Chocolate Flan',
   },
   {
-    img: '/assets/images/Cake2.jpeg',
+    img: '/assets/images/chocoflan3.jpeg',
     title: 'Chocolate Flan',
   },
- 
+  {
+    img: '/assets/images/chocoflan4.jpeg',
+    title: 'Chocolate Flan',
+  },
  
 ];
 

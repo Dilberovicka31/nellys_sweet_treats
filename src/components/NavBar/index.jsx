@@ -16,7 +16,7 @@ import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 const listItems = [
   { text: 'About', icon: <AccountCircleIcon />, path: '/' },
   { text: 'Cakes', icon: <CakeIcon />, path: '/cakes' },
-  { text: 'Cupcakes', icon: <CakeIcon />, path: '/cupcakes' },
+  { text: 'Chocoflan', icon: <CakeIcon />, path: '/chocoflan' },
   { text: 'Cheesecakes', icon: <CakeIcon />, path: '/cheesecakes' },
   { text: 'Contact', icon: <ContactMailIcon />, path: '/contact' },
 ];
