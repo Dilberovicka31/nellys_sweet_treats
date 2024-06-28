@@ -1,12 +1,15 @@
 import React from 'react';
-import { Container } from '@mui/material';
+import { Container, Typography,useMediaQuery, useTheme } from '@mui/material';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
 import IconButton from '@mui/material/IconButton';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 
-function ChocoFlan() {
+function Cake() {
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+
   function srcset(image, width, height, rows = 1, cols = 1) {
     return {
       src: `${image}?w=${width * cols}&h=${height * rows}&fit=crop&auto=format`,
@@ -17,18 +20,27 @@ function ChocoFlan() {
   return (
     <Container
       sx={{
-        width: '70%',
+        width: isSmallScreen ? '90%' : '70%', // Adjust width based on screen size
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
         boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.1)', // Adding shadow
         padding: '24px',
-        marginTop: '50px', // Adjust as needed
+        marginTop: '50px',
+        marginBottom: '50px',
       }}
-      maxWidth="lg" // Adjust max width as needed
+      maxWidth="lg" //Max Width
     >
-      <ImageList sx={{ width: '100%', height: '100%' }} cols={2} rowHeight={300} gap={24}>
+      <Typography variant="h4" gutterBottom>
+        Welcome to Our Cake Collection
+      </Typography>
+      <ImageList
+        sx={{ width: '100%', height: '100%' }}
+        cols={isSmallScreen ? 1 : 2} // Adjust columns based on screen size
+        rowHeight={360}
+        gap={24}
+      >
         {itemData.map((item) => (
           <ImageListItem key={item.img}>
             <img
@@ -72,8 +84,7 @@ const itemData = [
     img: '/assets/images/Cake2.jpeg',
     title: 'Cake',
   },
- 
- 
+  
 ];
 
-export default ChocoFlan;
+export default Cake;
