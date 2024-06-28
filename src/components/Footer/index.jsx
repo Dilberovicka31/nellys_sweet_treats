@@ -10,7 +10,7 @@ function Copyright() {
     <Typography variant="body2" color="text.secondary">
       {'Copyright © '}
       <Link color="inherit" href="https://nellyssweettreats.com/">
-        Nelly's Sweet Treats
+        Nellys Sweet Treats
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -24,14 +24,14 @@ export default function StickyFooter() {
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        minHeight: '10vh', // Ensure the footer sticks to the bottom
+        minHeight: '5vh', // Ensure the footer sticks to the bottom
         backgroundColor: '#E9EDC9', // Custom background color for the entire page
       }}
     >
       <CssBaseline />
       <Container component="main" sx={{ mt: 8, mb: 2 }} maxWidth="sm">
         <Typography variant="h2" component="h1" gutterBottom>
-          Welcome to Nelly's Sweet Treats
+          Welcome to Nellys Sweet Treats
         </Typography>
         <Typography variant="h5" component="h2" gutterBottom>
           {'Discover our delicious choco flan, cheesecakes, and cakes.'}
@@ -51,7 +51,7 @@ export default function StickyFooter() {
       >
         <Container maxWidth="sm">
           <Typography variant="body1">
-            Stay updated with Nelly's Sweet Treats for more delicious creations.
+            Stay updated with Nellys Sweet Treats for more delicious creations.
           </Typography>
           <Copyright />
         </Container>
