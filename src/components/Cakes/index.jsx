@@ -35,6 +35,7 @@ function Cake() {
       <Typography variant="h4" gutterBottom>
         Welcome to Our Cake Collection
       </Typography>
+      
       <ImageList
         sx={{ width: '100%', height: '100%' }}
         cols={isSmallScreen ? 1 : 2} // Adjust columns based on screen size

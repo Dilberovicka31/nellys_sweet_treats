@@ -5,6 +5,7 @@ import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
 import IconButton from '@mui/material/IconButton';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
+import Box from '@mui/material/Box';
 
 function ChocoFlan() {
   const theme = useTheme();
@@ -35,6 +36,35 @@ function ChocoFlan() {
       <Typography variant="h4" gutterBottom>
         Welcome to Our Choco Flan Collection
       </Typography>
+      <Box
+        width="100%"
+        textAlign="center"
+        mb={4}
+        sx={{
+          maxWidth: '100%',
+          height: '500px',
+          overflow: 'hidden',
+          position: 'relative',
+          borderRadius: '8px',
+        }}
+      >
+        <video
+          src="/assets/images/flan1.mp4"
+          controls
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'none', // Adjusted to 'none' to prevent scaling
+            maxWidth: '100%', // Ensures video doesn't exceed container width
+            maxHeight: '100%', // Ensures video doesn't exceed container height
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)', // Centering the video
+          }}
+        />
+      </Box>
+
       <ImageList
         sx={{ width: '100%', height: '100%' }}
         cols={isSmallScreen ? 1 : 2} // Adjust columns based on screen size
@@ -88,7 +118,14 @@ const itemData = [
     img: '/assets/images/chocoflan4.jpeg',
     title: 'Chocolate Flan',
   },
- 
+  {
+    img: '/assets/images/flan1.JPG',
+    title: 'Chocolate Flan',
+  },
+  {
+    img: '/assets/images/flan2.JPG',
+    title: 'Chocolate Flan',
+  }
 ];
 
 export default ChocoFlan;
