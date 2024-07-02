@@ -31,7 +31,7 @@ const ButtonContainer = styled('div')({
     color: 'black', // Text color
     '&:hover': {
       backgroundColor: '#E9EDC9', 
-      boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.2)', // Box shadow on hover
+      boxShadow: '0px 8px 16px rgba(212, 163, 115, 0.8)', // Box shadow on hover
     },
     '&:focus': {
       outline: 'none', // Remove blue outline on focus
@@ -83,9 +83,9 @@ export default function RightDrawer() {
   return (
     <div>
       <ButtonContainer>
-        <Button startIcon={<MenuIcon/>} onClick={toggleDrawer(true)}>Menu</Button>
+        <Button startIcon={<MenuIcon/>} onClick={toggleDrawer(true)} style={{color:"#6c584c"}}>Menu</Button>
       </ButtonContainer>
-      <Drawer anchor="right" open={open} onClose={toggleDrawer(false)}>
+      <Drawer style={{color:"#6c584c"}} anchor="right" open={open} onClose={toggleDrawer(false)}>
         {list}
       </Drawer>
     </div>

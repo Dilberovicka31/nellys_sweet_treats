@@ -1,15 +1,25 @@
-import React from 'react';
-import { Container, Typography, useMediaQuery, useTheme } from '@mui/material';
+import React, { useEffect } from 'react';
+import { Container, Typography, useMediaQuery, useTheme, Box } from '@mui/material';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
 import IconButton from '@mui/material/IconButton';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
-import Box from '@mui/material/Box';
+import { useSpring, animated } from '@react-spring/web'; // Import from react-spring
 
 function ChocoFlan() {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+
+  // Animate the list items
+  const [animate, setAnimate] = useSpring(() => ({
+    transform: 'translateY(100px)', // Start off-screen
+    opacity: 0,
+  }));
+
+  useEffect(() => {
+    setAnimate({ transform: 'translateY(0)', opacity: 1, delay: 200 }); // Slide up animation
+  }, [setAnimate]);
 
   function srcset(image, width, height, rows = 1, cols = 1) {
     return {
@@ -33,9 +43,11 @@ function ChocoFlan() {
       }}
       maxWidth="lg" //Max Width
     >
-      <Typography variant="h4" gutterBottom>
-        Welcome to Our Choco Flan Collection
+      <Typography variant="h4" gutterBottom style={{ color: '#6c584c', paddingBottom:"20px" }}>
+        Welcome to Our Mini Cheesecakes Collection
       </Typography>
+
+      {/* Video section */}
       <Box
         width="100%"
         textAlign="center"
@@ -49,14 +61,12 @@ function ChocoFlan() {
         }}
       >
         <video
-          src="/assets/images/flan1.mp4"
+          src="/assets/images/Flan.mp4" // Adjusted video source path
           controls
           style={{
             width: '100%',
             height: '100%',
-            objectFit: 'none', // Adjusted to 'none' to prevent scaling
-            maxWidth: '100%', // Ensures video doesn't exceed container width
-            maxHeight: '100%', // Ensures video doesn't exceed container height
+            objectFit: 'cover', // Ensure video covers the container
             position: 'absolute',
             top: '50%',
             left: '50%',
@@ -65,42 +75,50 @@ function ChocoFlan() {
         />
       </Box>
 
+      {/* Image list */}
       <ImageList
         sx={{ width: '100%', height: '100%' }}
         cols={isSmallScreen ? 1 : 2} // Adjust columns based on screen size
         rowHeight={360}
         gap={24}
       >
-        {itemData.map((item) => (
-          <ImageListItem key={item.img}>
-            <img
-              {...srcset(item.img, 300, 300)}
-              alt={item.title}
-              loading="lazy"
-              style={{ objectFit: 'cover', width: '100%', height: '100%' }}
-            />
-            <ImageListItemBar
+        {itemData.map((item, index) => (
+          <animated.div key={item.img} style={animate}>
+            <ImageListItem
               sx={{
-                background:
-                  'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, ' +
-                  'rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
+                boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.2)', // Add shadow
+                borderRadius: '8px', // Add rounded corners
+                overflow: 'hidden', // Ensure overflow is hidden for rounded corners
               }}
-              title={item.title}
-              position="top"
-              actionIcon={
-                <IconButton sx={{ color: 'white' }} aria-label={`star ${item.title}`}>
-                  <StarBorderIcon />
-                </IconButton>
-              }
-              actionPosition="left"
-            />
-          </ImageListItem>
+            >
+              <img
+                {...srcset(item.img, 300, 300)}
+                alt={item.title}
+                loading="lazy"
+                style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+              />
+              <ImageListItemBar
+                sx={{
+                  background:
+                    'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, ' +
+                    'rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
+                }}
+                title={item.title}
+                position="top"
+                actionIcon={
+                  <IconButton sx={{ color: 'white' }} aria-label={`star ${item.title}`}>
+                    <StarBorderIcon />
+                  </IconButton>
+                }
+                actionPosition="left"
+              />
+            </ImageListItem>
+          </animated.div>
         ))}
       </ImageList>
     </Container>
   );
 }
-
 const itemData = [
   {
     img: '/assets/images/chocoflan1.jpeg',
@@ -123,7 +141,7 @@ const itemData = [
     title: 'Chocolate Flan',
   },
   {
-    img: '/assets/images/flan2.JPG',
+    img: '/assets/images/ChocoFlan.JPG',
     title: 'Chocolate Flan',
   }
 ];

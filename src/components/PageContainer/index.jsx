@@ -1,5 +1,5 @@
 import { styled } from '@mui/system';
-import LogoOverlay from '../LogoOverlay'; // Import LogoOverlay component
+// import LogoOverlay from '../LogoOverlay'; // Import LogoOverlay component
 import backgroundImage from '/assets/images/NoeliaLogo.png'; // Replace with your image path
 
 const PageContainer = styled('div')({

@@ -8,6 +8,7 @@ import ChocoFlan from './components/ChocoFlan';
 import Contact from './components/Contact';
 import Cheesecakes from './components/Cheesecakes';
 import Home from './components/Home';
+import ScrollArrow from './components/ScrollArrow'; // Import ScrollArrow component 
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/cheesecakes" element={<Cheesecakes />} />
         </Routes>
       </PageContainer>
+      <ScrollArrow /> 
       <Footer />
     </div>
   );
