@@ -13,6 +13,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
+// Serve static files from the 'client/build' directory
+app.use(express.static(path.join(__dirname, 'client/build')));
+
+// Handle other routes by serving index.html
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+});
 // Initialize OAuth2Client
 const oauth2Client = new OAuth2Client(
   process.env.OAUTH_CLIENTID,
@@ -92,6 +99,7 @@ const getAccessToken = async () => {
     throw error;
   }
 };
+
 
 // Start server
 app.listen(PORT, () => {
