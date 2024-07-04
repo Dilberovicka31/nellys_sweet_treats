@@ -44,7 +44,7 @@ function ChocoFlan() {
       maxWidth="lg" //Max Width
     >
       <Typography variant="h4" gutterBottom style={{ color: '#6c584c', paddingBottom:"20px" }}>
-        Welcome to Our Mini Cheesecakes Collection
+        Welcome to Our Choco Flan Collection
       </Typography>
 
       {/* Video section */}
