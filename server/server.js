@@ -58,6 +58,7 @@ app.post('/send-email', async (req, res) => {
   const { name, email, message } = req.body;
 
   try {
+    console.log('Received request to send email:', { name, email, message });
     // Create transporter using OAuth2
     const accessToken = await getAccessToken();
     const transporter = nodemailer.createTransport({
