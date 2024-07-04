@@ -6,10 +6,10 @@
   "scripts": {
     "install": "cd client && npm install && cd ../server && npm install",
     "client": "cd client && npm start",
-    "build": "cd client && npm && npm run build",
+    "build": "cd client && npm run build",
     "server": "cd server && npm start",
     "dev": "concurrently \"npm run client\" \"npm run server\"",
-    "start": "cd server && npm && npm start"
+    "start": "cd server && npm start"
   },
   "keywords": [],
   "author": "",
