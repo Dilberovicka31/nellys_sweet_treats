@@ -1,41 +1,20 @@
 {
-  "name": "nellys_cheesecake",
+  "name": "nellys_sweet_treats",
   "version": "1.0.0",
   "description": "",
-  "main": "vite.config.js",
+  "main": "index.js",
   "scripts": {
-    "dev": "vite",
-    "start": "vite",
-    "build": "vite build",
-    "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "install": "cd client && npm install && cd ../server && npm install",
+    "client": "cd client && npm start",
+    "server": "cd server && npm start",
+    "dev": "concurrently \"npm run client\" \"npm run server\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "peerDependencies": {
-    "react": "^17.0.0 || ^18.0.0",
-    "react-dom": "^17.0.0 || ^18.0.0"
-  },
   "dependencies": {
-    "@emotion/react": "^11.11.4",
-    "@emotion/styled": "^11.11.5",
-    "@mui/icons-material": "^5.15.20",
-    "@mui/material": "^5.15.20",
-    "@mui/styled-engine-sc": "^6.0.0-alpha.18",
-    "@react-spring/web": "^9.7.3",
-    "@types/react-router-dom": "^5.3.3",
-    "react-router-dom": "^6.24.0",
-    "styled-components": "^6.1.11"
-  },
-  "devDependencies": {
-    "@types/react": "^18.0.28",
-    "@types/react-dom": "^18.0.11",
-    "@vitejs/plugin-react": "^4.0.0",
-    "eslint": "^8.38.0",
-    "eslint-plugin-react": "^7.32.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.3.4",
-    "vite": "^5.1.6"
+    "concurrently": "^6.2.2",
+    "dotenv": "^16.4.5",
+    "google-auth-library": "^9.11.0"
   }
 }
