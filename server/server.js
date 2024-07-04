@@ -74,7 +74,7 @@ app.post('/send-email', async (req, res) => {
 
     // Setup email data
     const mailOptions = {
-      from: `"Your Name" <${process.env.EMAIL_USER}>`,
+      from: `Nellys Sweet Treats <${process.env.EMAIL_USER}>`,
       to: process.env.CLIENT_EMAIL, // Replace with your client's email address
       subject: 'New Message from Contact Form',
       text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
