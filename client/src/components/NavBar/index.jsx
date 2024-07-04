@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import Drawer from '@mui/material/Drawer';
 import Button from '@mui/material/Button';
 import List from '@mui/material/List';
@@ -21,30 +21,40 @@ const listItems = [
   { text: 'Contact', icon: <ContactMailIcon />, path: '/contact' },
 ];
 
+const CustomListItem = styled(ListItem)({
+  '&.MuiListItem-root': {
+    '&:hover': {
+      backgroundColor: '#E9EDC9',
+    },
+  },
+  '& .MuiListItemIcon-root': {
+    color: '#463f3a', // Icon color
+  },
+  '& .MuiListItemText-root': {
+    color: '#463f3a', // Text color
+  },
+});
 const ButtonContainer = styled('div')({
   position: 'fixed',
   top: '20px',
   right: '20px',
-  zIndex: 999, 
-  '& button': {
-    backgroundColor: '#CCD5AE', // Default button color
-    color:'#463f3a', // Text color
-    '&:hover': {
-      backgroundColor: '#E9EDC9', 
-      boxShadow: '0px 8px 16px rgba(212, 163, 115, 0.8)', // Box shadow on hover
-    },
-    '&:focus': {
-      outline: 'none', // Remove blue outline on focus
-    },
-    '& .MuiButton-startIcon': {
-      marginRight: '8px', // Adjust the spacing between icon and text
-    },
-  },
+  zIndex: 999,
 });
 
-
-  
-
+const CustomButton = styled(Button)({
+  backgroundColor: '#CCD5AE', // Default button color
+  color: '#463f3a', // Text color
+  '&:hover': {
+    backgroundColor: '#E9EDC9',
+    boxShadow: '0px 8px 16px rgba(212, 163, 115, 0.8)', // Box shadow on hover
+  },
+  '&:focus': {
+    outline: 'none', // Remove blue outline on focus
+  },
+  '& .MuiButton-startIcon': {
+    marginRight: '8px', // Adjust the spacing between icon and text
+  },
+});
 
 const DrawerContent = styled('div')({
   width: 250,
@@ -65,16 +75,19 @@ export default function RightDrawer() {
       onClick={toggleDrawer(false)}
       onKeyDown={toggleDrawer(false)}
     >
-      <List>
+       <List>
         {listItems.map((item, index) => (
-          <ListItem key={item.text} disablePadding>
-            <ListItemButton component={Link} to={item.path}>
-              <ListItemIcon>
-                {item.icon}
-              </ListItemIcon>
+          <CustomListItem
+            key={item.text}
+            disablePadding
+            component={Link}
+            to={item.path}
+          >
+            <ListItemButton>
+              <ListItemIcon>{item.icon}</ListItemIcon>
               <ListItemText primary={item.text} />
             </ListItemButton>
-          </ListItem>
+          </CustomListItem>
         ))}
       </List>
     </DrawerContent>
@@ -83,9 +96,11 @@ export default function RightDrawer() {
   return (
     <div>
       <ButtonContainer>
-        <Button startIcon={<MenuIcon/>} onClick={toggleDrawer(true)} style={{color:'#463f3a'}}>Menu</Button>
+        <CustomButton startIcon={<MenuIcon />} onClick={toggleDrawer(true)}>
+          Menu
+        </CustomButton>
       </ButtonContainer>
-      <Drawer style={{color:'#463f3a'}} anchor="right" open={open} onClose={toggleDrawer(false)}>
+      <Drawer anchor="right" open={open} onClose={toggleDrawer(false)}>
         {list}
       </Drawer>
     </div>
