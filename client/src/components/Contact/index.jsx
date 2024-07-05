@@ -18,7 +18,9 @@ const ContactForm = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:3000/send-email', {
+      const baseUrl = process.env.NODE_ENV === 'production' ? '' : 'http://localhost:3000';
+
+      const response = await fetch(`${baseUrl}/send-email`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

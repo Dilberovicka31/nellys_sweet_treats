@@ -44,11 +44,19 @@ export default function StickyFooter() {
           Follow me on Social Media
         </Typography>
         <StyledIconContainer>
+        <a
+          href="https://www.instagram.com/nellys.sweet.treats/"
+          target="_blank"
+          rel="noreferrer"
+          style={{ color: '#6c584c', textDecoration: 'none' }}
+        >
           <InstagramIcon style={{ fontSize: 40, color: '#6c584c' }} />
+        </a>
+         
           <FacebookIcon style={{ fontSize: 40, color: '#6c584c' }} />
         </StyledIconContainer>
         <a
-          href="https://www.instagram.com/nellys.sweet.treats?igsh=djg4Y3Y3aTY5cmk0"
+          href="https://www.instagram.com/nellys.sweet.treats/"
           target="_blank"
           rel="noreferrer"
           style={{ color: '#6c584c', textDecoration: 'none' }}
