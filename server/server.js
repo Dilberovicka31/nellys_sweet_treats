@@ -44,7 +44,7 @@ app.get('/oauthcallback', async (req, res) => {
   const code = req.query.code;
   try {
     const { tokens } = await oauth2Client.getToken(code);
-    console.log('Tokens:', tokens);
+
     // Store tokens securely (e.g., in a database or environment variables)
     res.send('Authorization successful! You can now send emails.');
   } catch (error) {
@@ -101,7 +101,6 @@ const getAccessToken = async () => {
     throw error;
   }
 };
-
 
 // Start server
 app.listen(PORT, () => {

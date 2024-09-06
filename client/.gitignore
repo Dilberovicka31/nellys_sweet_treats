@@ -23,3 +23,7 @@ dist-ssr
 *.sln
 *.sw?
 .env
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1f8561e (addded server and oAuth for the contact form to work)
